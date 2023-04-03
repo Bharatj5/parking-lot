@@ -2,8 +2,6 @@ package com.detillens.parkingapp.model;
 
 import lombok.Data;
 
-import java.util.Objects;
-
 @Data
 public class Slot {
 
@@ -24,11 +22,4 @@ public class Slot {
         this.setVehicleRegistrationNumber(null);
     }
 
-    public static Slot copyOf(final Slot oldSlot) {
-        Objects.requireNonNull(oldSlot);
-        final var newSlot = new Slot();
-        newSlot.setVehicleRegistrationNumber(oldSlot.getVehicleRegistrationNumber());
-        newSlot.setAvailable(oldSlot.isAvailable());
-        return oldSlot;
-    }
 }

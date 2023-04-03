@@ -1,4 +1,4 @@
-package com.detillens.parkingapp.parking;
+package com.detillens.parkingapp.command;
 
 import com.detillens.parkingapp.config.Input;
 import com.detillens.parkingapp.model.Ticket;

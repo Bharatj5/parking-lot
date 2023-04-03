@@ -1,6 +1,5 @@
 package com.detillens.parkingapp.repository;
 
-import com.detillens.parkingapp.model.Slot;
 import com.detillens.parkingapp.model.Ticket;
 import com.detillens.parkingapp.model.Vehicle;
 import com.detillens.parkingapp.model.enums.VehicleType;
@@ -104,7 +103,6 @@ class TicketRepositoryTest {
             ticket.setCheckOutTime(LocalDateTime.now()
                                                 .plusMinutes(40));
         }
-        ticket.setSlot(new Slot());
         return ticket;
     }
 }

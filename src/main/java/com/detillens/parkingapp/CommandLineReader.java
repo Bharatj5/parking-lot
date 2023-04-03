@@ -1,8 +1,8 @@
 package com.detillens.parkingapp;
 
+import com.detillens.parkingapp.command.Command;
 import com.detillens.parkingapp.config.Input;
 import com.detillens.parkingapp.exception.BadInputException;
-import com.detillens.parkingapp.parking.Command;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

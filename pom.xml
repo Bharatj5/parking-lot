@@ -12,7 +12,7 @@
 	<artifactId>parking-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>parking-app</name>
-	<description>Coding exercise for detillens </description>
+	<description>Coding exercise for Detillens </description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

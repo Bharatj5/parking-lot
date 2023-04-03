@@ -1,4 +1,4 @@
-package com.detillens.parkingapp.parking;
+package com.detillens.parkingapp.command;
 
 import com.detillens.parkingapp.config.Input;
 import com.detillens.parkingapp.exception.BadInputException;
@@ -18,7 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.stream.Stream;
 
-import static com.detillens.parkingapp.parking.CheckInCommand.NAME;
+import static com.detillens.parkingapp.command.CheckInCommand.NAME;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.Mockito.*;

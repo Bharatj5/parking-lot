@@ -6,12 +6,14 @@ import com.detillens.parkingapp.repository.ParkingLotRepository;
 import com.detillens.parkingapp.service.exception.NoSpaceAvailable;
 import com.detillens.parkingapp.service.exception.UnknownVehicleException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ParkingLotService {
@@ -25,6 +27,7 @@ public class ParkingLotService {
                                .findFirst()
                                .orElseThrow(NoSpaceAvailable::new);
         slot.block(vehicle.getRegistrationNumber());
+        log.debug("allocated!");
     }
 
     public synchronized void freeUpSlot(final Vehicle vehicle) {
@@ -35,6 +38,7 @@ public class ParkingLotService {
                 .findFirst()
                 .orElseThrow(() -> new UnknownVehicleException(vehicle.getRegistrationNumber()));
         allocatedSlot.unblock();
+        log.debug("free up space!");
     }
 
     public boolean isVehicleInParkingLot(final String registrationNumber) {

@@ -22,7 +22,7 @@ class ParkingLotServiceTest {
 
     @BeforeEach
     public void setUp() {
-        final ParkingLot parkingLot =  configureParkingLot(2, 1.5d, 1, 5d);
+        final ParkingLot parkingLot =  configureParkingLot(1, 1.5d, 1, 5d);
         parkingLotRepository = new ParkingLotRepository(parkingLot);
         classUnderTest = new ParkingLotService(parkingLotRepository);
     }

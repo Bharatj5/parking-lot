@@ -1,5 +1,7 @@
 package com.detillens.parkingapp.config;
 
+import com.detillens.parkingapp.command.CheckInCommand;
+import com.detillens.parkingapp.command.CheckOutCommand;
 import com.detillens.parkingapp.exception.BadInputException;
 import com.detillens.parkingapp.model.ParkingLot;
 import com.detillens.parkingapp.model.Slot;
@@ -25,15 +27,15 @@ public class ParkingLotConfigurations {
         final Scanner scanner = new Scanner(System.in);
         final Function<Integer, List<Slot>> slotCreator = this::createSlots;
         try {
-            log.info("Enter number of car parking slots: ");
+            System.out.print("Enter number of car parking slots: ");
             final int carSlots = scanner.nextInt();
-            log.info("Enter the fair per hour for car: ");
+            System.out.print("Enter the fair per hour for car: ");
             final double carSlotPricePerHour = scanner.nextDouble();
-            log.info("Enter number of motorcycle parking slots: ");
+            System.out.print("Enter number of motorcycle parking slots: ");
             final int motorcycleSlots = scanner.nextInt();
-            log.info("Enter the fair per hour for motorcycle: ");
+            System.out.print("Enter the fair per hour for motorcycle: ");
             final double motorcycleSlotPricePerHour = scanner.nextDouble();
-            final String s = scanner.nextLine();
+            final String s = scanner.nextLine(); //skip the next line
 
             final ParkingLot parkingLot = ParkingLot.configure()
                                                     .carSlots(slotCreator.apply(carSlots))
@@ -41,7 +43,13 @@ public class ParkingLotConfigurations {
                                                     .motorcycleSlots(slotCreator.apply(motorcycleSlots))
                                                     .motorcyclePricePerHour(motorcycleSlotPricePerHour)
                                                     .build();
-            log.info("Parking lot has been configured successfully!");
+            System.out.println("Parking lot has been configured successfully!");
+            System.out.println("Use below commands to check-in/check-out vehicles");
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println(CheckInCommand.COMMAND_HINT);
+            System.out.println(CheckOutCommand.COMMAND_HINT);
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println("Thank you!\n");
             return parkingLot;
         }catch (final Exception e) {
             throw new BadInputException("Configuration unsuccessful! Please enter valid inputs.");

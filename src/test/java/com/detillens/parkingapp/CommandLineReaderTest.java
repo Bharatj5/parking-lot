@@ -1,9 +1,9 @@
 package com.detillens.parkingapp;
 
+import com.detillens.parkingapp.command.CheckInCommand;
+import com.detillens.parkingapp.command.CheckOutCommand;
+import com.detillens.parkingapp.command.Command;
 import com.detillens.parkingapp.config.Input;
-import com.detillens.parkingapp.parking.CheckInCommand;
-import com.detillens.parkingapp.parking.CheckOutCommand;
-import com.detillens.parkingapp.parking.Command;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

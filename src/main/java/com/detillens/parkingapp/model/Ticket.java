@@ -3,6 +3,7 @@ package com.detillens.parkingapp.model;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Data
 public class Ticket {
@@ -11,12 +12,15 @@ public class Ticket {
     private final LocalDateTime checkInTime;
     private LocalDateTime checkOutTime;
     private Double charges;
-    private final int slotNumber;
+    private Slot slot;
 
-    public Ticket(final Vehicle vehicle, final int slotNumber) {
+    public Ticket(final Vehicle vehicle) {
         this.vehicle = vehicle;
         this.checkInTime = LocalDateTime.now();
-        this.slotNumber = slotNumber;
+    }
+
+    public boolean isActive() {
+       return Objects.nonNull(vehicle) && Objects.isNull(checkOutTime) && Objects.isNull(charges);
     }
 
 }

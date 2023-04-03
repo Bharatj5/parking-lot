@@ -1,15 +1,21 @@
 package com.detillens.parkingapp.model;
 
-import com.detillens.parkingapp.parking.VehicleType;
-import lombok.Getter;
+import com.detillens.parkingapp.model.enums.VehicleType;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter
+import java.util.Objects;
+
+@Builder
+@Data
 public class Vehicle {
-    final String registrationNumber;
-    final VehicleType type;
 
-    public Vehicle(final String registrationNumber, final VehicleType type) {
-        this.registrationNumber = registrationNumber;
-        this.type = type;
+    private final String registrationNumber;
+    private final VehicleType type;
+
+    public static Vehicle copyOf(final Vehicle oldVehicle) {
+        Objects.requireNonNull(oldVehicle);
+        return new Vehicle(oldVehicle.getRegistrationNumber(), oldVehicle.getType());
     }
+
 }

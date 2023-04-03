@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class NoSpaceAvailable extends RuntimeException{
 
+    public static final String ERROR_MESSAGE = "Sorry, parking is full.";
+
     public NoSpaceAvailable() {
-      log.error("Sorry, parking is full.");
+        super(ERROR_MESSAGE);
     }
 }
